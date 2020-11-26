@@ -41,8 +41,8 @@ export default function Login(props) {
 
     return (
         <Row className="bg-white justify-content-center h-80 login-row">
-            <Col sm={9} md={6} lg={6}>
-                <div className="col-lg-6 mx-auto pt-5 mt-4">
+            <Col sm={9} md={6} lg={6} className="bg-secondary">
+                <div className="col-lg-8 mx-auto px-5 py-5 mt-4">
                 <h1 className="text-center pb-2">Login</h1>
                 <Form onSubmit={submitLoginForm}>
                     <Form.Group>
