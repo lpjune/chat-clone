@@ -20,7 +20,7 @@ function App() {
             <AuthProvider>
                 <MessageProvider>
                     <BrowserRouter>
-                        <Container className="pt-5">
+                        <Container fluid className="app-container">
                             <Switch>
                                 <DynamicRoute
                                     exact
