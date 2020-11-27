@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Row, Col, Form, Button } from "react-bootstrap";
+import { Row, Col, Form, Button, Image } from "react-bootstrap";
 import { gql, useMutation } from "@apollo/client";
 import { Link } from "react-router-dom";
 
@@ -44,95 +44,107 @@ export default function Register(props) {
     };
 
     return (
-        <Row className="bg-white py-5 justify-content-center">
-            <Col sm={8} md={6} lg={4}>
-                <h1 className="text-center">Register</h1>
-                <Form onSubmit={submitRegisterForm}>
-                    <Form.Group>
-                        <Form.Label className={errors.email && "text-danger"}>
-                            {errors.email ?? "Email address"}
-                        </Form.Label>
-                        <Form.Control
-                            type="email"
-                            value={variables.email}
-                            className={errors.email && "is-invalid"}
-                            onChange={(e) =>
-                                setVariables({
-                                    ...variables,
-                                    email: e.target.value,
-                                })
-                            }
-                        />
-                    </Form.Group>
-                    <Form.Group>
-                        <Form.Label
-                            className={errors.username && "text-danger"}
-                        >
-                            {errors.username ?? "Username"}
-                        </Form.Label>
-                        <Form.Control
-                            type="text"
-                            value={variables.username}
-                            className={errors.username && "is-invalid"}
-                            onChange={(e) =>
-                                setVariables({
-                                    ...variables,
-                                    username: e.target.value,
-                                })
-                            }
-                        />
-                    </Form.Group>
-                    <Form.Group>
-                        <Form.Label
-                            className={errors.password && "text-danger"}
-                        >
-                            {errors.password ?? "Password"}
-                        </Form.Label>
-                        <Form.Control
-                            type="password"
-                            value={variables.password}
-                            className={errors.password && "is-invalid"}
-                            onChange={(e) =>
-                                setVariables({
-                                    ...variables,
-                                    password: e.target.value,
-                                })
-                            }
-                        />
-                    </Form.Group>
-                    <Form.Group>
-                        <Form.Label
-                            className={errors.confirmPassword && "text-danger"}
-                        >
-                            {errors.confirmPassword ?? "Confirm password"}
-                        </Form.Label>
-                        <Form.Control
-                            type="password"
-                            value={variables.confirmPassword}
-                            className={errors.confirmPassword && "is-invalid"}
-                            onChange={(e) =>
-                                setVariables({
-                                    ...variables,
-                                    confirmPassword: e.target.value,
-                                })
-                            }
-                        />
-                    </Form.Group>
-                    <div className="text-center">
-                        <Button
-                            variant="success"
-                            type="submit"
-                            disabled={loading}
-                        >
-                            {loading ? "loading.." : "Register"}
-                        </Button>
-                        <br />
-                        <small>
-                            Already have an account?{" "}
-                            <Link to="/login">Login</Link>
-                        </small>
-                    </div>
-                </Form>
+        <Row className="bg-white justify-content-center h-80 login-row">
+            <Col sm={3} md={6} lg={6}>
+                <Image src="images/profile_data.svg" fluid className="p-5" />
+            </Col>
+            <Col sm={9} md={6} lg={6} className="bg-secondary">
+                <div className="col-lg-8 mx-auto px-5 py-5 mt-4">
+                    <h1 className="text-center">Register</h1>
+                    <Form onSubmit={submitRegisterForm}>
+                        <Form.Group>
+                            <Form.Label
+                                className={errors.email && "text-danger"}
+                            >
+                                {errors.email ?? "Email address"}
+                            </Form.Label>
+                            <Form.Control
+                                type="email"
+                                value={variables.email}
+                                className={errors.email && "is-invalid"}
+                                onChange={(e) =>
+                                    setVariables({
+                                        ...variables,
+                                        email: e.target.value,
+                                    })
+                                }
+                            />
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label
+                                className={errors.username && "text-danger"}
+                            >
+                                {errors.username ?? "Username"}
+                            </Form.Label>
+                            <Form.Control
+                                type="text"
+                                value={variables.username}
+                                className={errors.username && "is-invalid"}
+                                onChange={(e) =>
+                                    setVariables({
+                                        ...variables,
+                                        username: e.target.value,
+                                    })
+                                }
+                            />
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label
+                                className={errors.password && "text-danger"}
+                            >
+                                {errors.password ?? "Password"}
+                            </Form.Label>
+                            <Form.Control
+                                type="password"
+                                value={variables.password}
+                                className={errors.password && "is-invalid"}
+                                onChange={(e) =>
+                                    setVariables({
+                                        ...variables,
+                                        password: e.target.value,
+                                    })
+                                }
+                            />
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label
+                                className={
+                                    errors.confirmPassword && "text-danger"
+                                }
+                            >
+                                {errors.confirmPassword ?? "Confirm password"}
+                            </Form.Label>
+                            <Form.Control
+                                type="password"
+                                value={variables.confirmPassword}
+                                className={
+                                    errors.confirmPassword && "is-invalid"
+                                }
+                                onChange={(e) =>
+                                    setVariables({
+                                        ...variables,
+                                        confirmPassword: e.target.value,
+                                    })
+                                }
+                            />
+                        </Form.Group>
+                        <div className="text-center">
+                            <Button
+                                className="m-3"
+                                variant="success"
+                                type="submit"
+                                disabled={loading}
+                            >
+                                {loading ? "loading.." : "Register"}
+                            </Button>
+                            <br />
+                            <small>
+                                Already have an account?{" "}
+                                <Link to="/login">Login</Link>
+                            </small>
+                        </div>
+                    </Form>
+                </div>
             </Col>
         </Row>
     );
