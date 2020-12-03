@@ -91,7 +91,7 @@ export default function Home({ history }) {
 
     return (
         <Fragment>
-            <Row className="bg-white justify-content-around mb-1">
+            <Row className="bg-white justify-content-around mb-1 login-row">
                 <Link to="/login">
                     <Button variant="link">Login</Button>
                 </Link>
@@ -102,7 +102,7 @@ export default function Home({ history }) {
                     Logout
                 </Button>
             </Row>
-            <Row className="bg-white">
+            <Row className="bg-white login-row">
                 <Users />
                 <Messages />
             </Row>
