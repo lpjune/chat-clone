@@ -43,7 +43,11 @@ export default function Login(props) {
         <Row className="bg-white justify-content-center h-80 login-row">
             <Col sm={9} md={6} lg={6} className="bg-secondary">
                 <div className="col-lg-8 mx-auto px-5 py-5 mt-4">
-                    <h1 className="text-center pb-4">Login</h1>
+                    <div className="text-center pb-4">
+                        <h1>Login</h1>
+                        <small>Try username "demo" with password "demo"</small>
+                    </div>
+
                     <Form onSubmit={submitLoginForm}>
                         <Form.Group>
                             <Form.Label
